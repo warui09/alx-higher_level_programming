@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+
+def roman_to_int(roman_string):
+    if not roman_string:
+        return None
+    else:
+        roman_list = list(roman_string)
+        total = 0
+        i = 0
+
+        while(i < len(roman_list)):
+            if roman_list[i] == 'M':
+                total += 1000
+                break
+            elif roman_list[i] == 'C' and (roman_list[i+1] != 'D'\
+                    or roman_list[i+1] != 'M'):
+                total += 100
+                break
+            elif roman_list[i] == 'C' and roman_list[i+1] == 'D':
+                total += 400
+                i += 1
+                break
+            elif roman_list[i] == 'D':
+                total += 500
+                break
+            elif roman_list[i] == 'C' and roman_list[i+1] == 'M':
+                total += 900
+                i += 1
+                break
+            elif roman_list[i] == 'X' and (roman_list[i+1] != 'L'\
+                    or roman_list[i+1] != 'C'):
+                total += 10
+                break
+            elif roman_list[i] == 'X' and roman_list[i+1] == 'L':
+                total += 40
+                i += 1
+                break
+            elif roman_list[i] == 'L':
+                total += 50
+                break
+            elif roman_list[i] == 'X' and roman_list[i+1] == 'C':
+                total += 90
+                i += 1
+                break
+            elif roman_list[i] == 'I' and (roman_list[i+1] != 'V'\
+                    or roman_list[i+1] != 'X'):
+                total += 1
+                break
+            elif roman_list[i] == 'I' and roman_list[i+1] == 'V':
+                total += 4
+                i += 1
+                break
+            elif roman_list[i] == 'V':
+                total += 5
+                break
+            elif roman_list[i] == 'I' and roman_list[i+1] == 'X':
+                total += 9
+                i += 1
+        return total
