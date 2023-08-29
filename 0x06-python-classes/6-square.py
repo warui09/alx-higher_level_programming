@@ -7,21 +7,21 @@ class Square:
     a private attribute position"""
 
     def __init__(self, size=0, position=(0, 0)):
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         return self.__size
 
     @size.setter
-    def size(self, size):
-        if not isinstance(size, int):
+    def size(self, value):
+        if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        elif size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.__size = size
+            self.__size = value
 
     @property
     def position(self):
@@ -43,6 +43,7 @@ class Square:
         if self.__size == 0:
             print()
             return
+
         for _ in range(self.__position[1]):
             print()
 
