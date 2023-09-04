@@ -1,0 +1,92 @@
+****************************************************
+These are tests for the add_integer module
+
+add_integer() returns the addition of two integers
+floats are converted to integers
+otherwise an exception is raised
+
+****************************************************
+
+Usage
+
+add_integer(a, b)
+
+****************************************************
+#import the add_integer module
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+#test integers
+>>> add_integer(1, 2)
+3
+
+----------------------------------------------------
+
+#test for default second argument
+>>> add_integer(2)
+100
+
+---------------------------------------------------
+
+#test for floats
+>>> add_integer(4.0, 4.0)
+8
+
+>>> add_integer(3.2, 2)
+5
+
+
+---------------------------------------------------
+
+#test for some input being strings
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer("School", 98)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer("Cool", "School")
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+-------------------------------------------------
+
+#test one argument is None
+>>> add_integer(None, 8)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(8, None)
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+------------------------------------------------
+
+#test very large or very small numbers
+>>> add_integer(3333311111111111, 44422222221111)
+3377733333332222
+
+>>> add_integer(7777555511111111, 3332222221111)
+7780887733332222
+
+>>> add_integer(6E+100, 1)
+59999999999999997068835682134136940971241037736633875053874287242207990129397466887072249504723894273
+
+
+>>> add_integer(7E-56, 2)
+2
+
+--------------------------------------------------
+
+#test infinity or not a number
+
+>>> add_integer(67, float('inf'))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('nan'), 45.4)
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
