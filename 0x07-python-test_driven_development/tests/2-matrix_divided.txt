@@ -1,0 +1,79 @@
+***********************************************************
+
+        Tests for the '2-matrix_divided' module
+
+the matrix is a list of list of numbers, integers or floats
+and div is a number greater than 0
+the lists should be equal in length
+
+***********************************************************
+
+                     Usage
+             matrix_divided(matrix, div)
+
+
+***********************************************************
+
+#import module
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+------------------------------------------------------------
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+
+
+-------------------------------------------------------------
+
+#test different divisors
+
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+>>> matrix_divided(matrix, "a")
+Traceback (most recent call last):
+TypeError: div must be a number
+
+>>> matrix_divided(matrix, -2.2)
+[[-0.45, -0.91, -1.36], [-1.82, -2.27, -2.73]]
+
+>>> matrix_divided(matrix, 0.5)
+[[2.0, 4.0, 6.0], [8.0, 10.0, 12.0]]
+
+>>> matrix_divided(matrix, 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+--------------------------------------------------------------
+
+#test different matrices
+
+>>> matrix_divided(None, 2)
+Traceback (most recent call last):
+TypeError: 'NoneType' object is not subscriptable
+
+>>> matrix = [["a", "b", "c"], ["d", "e", "f"]]
+>>> matrix_divided(matrix, 5)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [[1, 2, 3], [4, 5]]
+>>> matrix_divided(matrix, 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divided("string", 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix = [[1, 4.5, 3], [2.4, 5, 6]]
+>>> matrix_divided(matrix, 2)
+[[0.5, 2.25, 1.5], [1.2, 2.5, 3.0]]
+
+>>> matrix = [[1, "a", 4.0], ["c", 5, 33]]
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
