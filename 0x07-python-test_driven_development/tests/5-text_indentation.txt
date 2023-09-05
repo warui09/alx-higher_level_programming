@@ -1,0 +1,45 @@
++++++++++++++++++++++++++++++++++++++++++++++
+
+            5-text_indentation
+
++++++++++++++++++++++++++++++++++++++++++++++
+ 
+                 Usage
+            text_indentation(text)
+
+++++++++++++++++++++++++++++++++++++++++++++
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+#test various input types
+
+>>> text_indentation(55555555)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation("aaa?aa")
+aaa?
+<BLANKLINE>
+aa
+
+>>> text_indentation("aaa.aa")
+aaa.
+<BLANKLINE>
+aa
+
+>>> text_indentation("aaa:aa")
+aaa:
+<BLANKLINE>
+aa
+
+>>> text_indentation(4.6)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation([2, "d"])
+Traceback (most recent call last):
+TypeError: text must be a string
