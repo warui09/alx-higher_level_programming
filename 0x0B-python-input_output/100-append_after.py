@@ -22,6 +22,6 @@ def append_after(filename="", search_string="", new_string=""):
             temp_file.write(line)
 
             if search_string in line:
-                temp_file.write(new_string + "\n")
+                temp_file.write(new_string)
 
     os.rename(temp_filename, filename)
