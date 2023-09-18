@@ -9,7 +9,7 @@ import unittest
 from models.rectangle import Rectangle
 
 
-class rectangleArea(unittest.TestCase):
+class testRectangleArea(unittest.TestCase):
     """
     Test the area method in the Rectangle class
     """

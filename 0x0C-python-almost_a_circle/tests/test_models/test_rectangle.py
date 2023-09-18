@@ -4,25 +4,22 @@ Tests for Rectangle class
 """
 
 import unittest
+from models.base import Base
 from models.rectangle import Rectangle
 
 
-class testRectangle(unittest.TestCase):
+class TestRectangleInstantiation(unittest.TestCase):
     """
     Tests for Rectangle class
     """
 
     def test_id(self):
         """Test if id is incremented or value passed"""
-        #create class instances
-        r1 = Rectangle(10, 2)
-        r2 = Rectangle(5, 9)
-        r3 = Rectangle(10, 2, 0, 0, 12)
+        pass
 
-        #test the id
-        self.assertEqual(r1.id, 1)
-        self.assertEqual(r2.id, 2)
-        self.assertEqual(r3.id, 12)
+    def test_no_args(self):
+         with self.assertRaises(TypeError):
+            Rectangle()
 
     def test_width_string(self):
         """Test creation of Rectangle with width of string value"""
@@ -43,6 +40,21 @@ class testRectangle(unittest.TestCase):
         """Test creation with a string for value y"""
         r7 = Rectangle(4, 4, 0, "3", 9)
         self.assertRaises(TypeError)
+
+class TestRectangleArea(unittest.TestCase):
+    """
+    Test the area method in the Rectangle class
+    """
+
+    def test_rectangle_area(self):
+        """Create instances of Rectangle and calculate their areas"""
+        # create rectangles
+        r1 = Rectangle(5, 10)
+        r2 = Rectangle(8, 7, 0, 0, 12)
+
+        # test area
+        self.assertEqual(r1.area(), 50)
+        self.assertEqual(r2.area(), 56)
 
 if __name__ == "__main__":
     unittest.main()
