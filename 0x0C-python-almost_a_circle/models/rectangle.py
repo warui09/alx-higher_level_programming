@@ -23,34 +23,60 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """
-        getter for the width property
-        """
+        """Getter for the width property"""
         return self.__width
 
     @width.setter
     def width(self, width):
-        """
-        setter for width property
-        """
-        if width > 0:
-            self.__width = width
+        """Setter for width property"""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
         else:
-            raise ValueError("Width must be greater than 0")
+            self.__width = width
 
     @property
     def height(self):
-        """
-        getter for the height property
-        """
+        """Getter for the height property"""
         return self.__height
 
     @height.setter
     def height(self, height):
-        """
-        setter for height property
-        """
-        if height > 0:
-            self.__height = height
+        """Setter for height property"""
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
         else:
-            raise ValueError("Height must be greater than 0")
+            self.__height = height
+
+    @property
+    def x(self):
+        """Getter for x"""
+        return self.__x
+
+    @x.setter
+    def x(self, x):
+        """Setter for x"""
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be >= 0")
+        else:
+            self.__x = x
+
+    @property
+    def y(self):
+        """Getter for y"""
+        return self.__y
+
+    @y.setter
+    def y(self, y):
+        """Setter for y"""
+        if not isinstance(y, int):
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be >= 0")
+        else:
+            self.__y = y
