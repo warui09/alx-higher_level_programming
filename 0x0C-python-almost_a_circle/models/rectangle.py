@@ -35,7 +35,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, width):
         """Setter for width property"""
-        if not isinstance(width, int):
+        if width is None or not isinstance(width, int):
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
@@ -51,7 +51,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, height):
         """Setter for height property"""
-        if not isinstance(height, int):
+        if height is None or not isinstance(width, int):
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
@@ -68,10 +68,9 @@ class Rectangle(Base):
         """Setter for x"""
         if not isinstance(x, int):
             raise TypeError("x must be an integer")
-        elif x < 0:
+        if x < 0:
             raise ValueError("x must be >= 0")
-        else:
-            self.__x = x
+        self.__x = x
 
     @property
     def y(self):
@@ -84,10 +83,9 @@ class Rectangle(Base):
         """Setter for y"""
         if not isinstance(y, int):
             raise TypeError("y must be an integer")
-        elif y < 0:
+        if y < 0:
             raise ValueError("y must be >= 0")
-        else:
-            self.__y = y
+        self.__y = y
 
     def area(self):
         """Returns the area of the rectangle"""
