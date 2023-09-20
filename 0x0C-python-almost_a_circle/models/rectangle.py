@@ -14,6 +14,10 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Class constructor
+
+        Args:
+            width, height, x, y: integers
+            id: integer or None
         """
         self.__width = width
         self.__height = height
@@ -23,7 +27,9 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Getter for the width property"""
+        """Getter for the width property
+        Returns the width of the Rectangle instance
+        """
         return self.__width
 
     @width.setter
@@ -31,14 +37,15 @@ class Rectangle(Base):
         """Setter for width property"""
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
-        elif width <= 0:
+        if width <= 0:
             raise ValueError("width must be > 0")
-        else:
-            self.__width = width
+        self.__width = width
 
     @property
     def height(self):
-        """Getter for the height property"""
+        """Getter for the height property
+        Returns the height of the Rectangle instance
+        """
         return self.__height
 
     @height.setter
@@ -46,14 +53,14 @@ class Rectangle(Base):
         """Setter for height property"""
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
-        elif height <= 0:
+        if height <= 0:
             raise ValueError("height must be > 0")
-        else:
-            self.__height = height
+        self.__height = height
 
     @property
     def x(self):
-        """Getter for x"""
+        """Getter for x
+        Returns the value of x"""
         return self.__x
 
     @x.setter
@@ -68,7 +75,8 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Getter for y"""
+        """Getter for y
+        Returns the value of y"""
         return self.__y
 
     @y.setter
@@ -82,11 +90,14 @@ class Rectangle(Base):
             self.__y = y
 
     def area(self):
+        """Returns the area of the rectangle"""
         return self.__width * self.__height
 
     def display(self):
+        """Prints a represntation of the rectangle using '#'"""
         for row in range(self.__height):
             print("#" * self.__width)
 
     def __str__(self):
+        """Returns a string description of the Rectangle instance Attributes"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
