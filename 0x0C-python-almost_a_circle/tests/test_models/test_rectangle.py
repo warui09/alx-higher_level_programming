@@ -157,7 +157,7 @@ class TestRectangleDisplay(unittest.TestCase):
     def test_display_without_x_exists(self):
         """Test display() when x is omitted"""
         r = Rectangle(3, 2, 0, 1)
-        expected_output = "###\n###\n"
+        expected_output = "\n###\n###\n"
         
         # Redirect stdout to capture printed output
         from io import StringIO
@@ -178,7 +178,7 @@ class TestRectangleDisplay(unittest.TestCase):
     def test_display_exists(self):
         """Test display() when x and y exist"""
         r = Rectangle(3, 2, 1, 1)
-        expected_output = "###\n###\n"
+        expected_output = "\n ###\n ###\n"
         
         # Redirect stdout to capture printed output
         from io import StringIO
