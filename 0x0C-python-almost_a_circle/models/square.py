@@ -22,7 +22,7 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
-     @property
+    @property
     def size(self):
         """
         Getter for the size attribute.
@@ -97,7 +97,7 @@ class Square(Rectangle):
         if not isinstance(y, int) or y < 0:
             raise ValueError("y must be a non-negative integer")
         self._y = y
- @property
+    @property
     def size(self):
         """
         Getter for the size attribute.
@@ -134,7 +134,7 @@ class Square(Rectangle):
         Returns:
             int: The x-coordinate of the square.
         """
-        return self._x
+        return self._Rectangle__x
 
     @x.setter
     def x(self, x):
@@ -152,7 +152,7 @@ class Square(Rectangle):
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
-        self._x = x
+        self._Rectangle__x = x
 
     @property
     def y(self):
@@ -162,7 +162,7 @@ class Square(Rectangle):
         Returns:
             int: The y-coordinate of the square.
         """
-        return self._y
+        return self._Rectangle__y
 
     @y.setter
     def y(self, y):
@@ -180,7 +180,7 @@ class Square(Rectangle):
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        self._y = y
+        self._Rectangle__y = y
 
 
     def __str__(self):
