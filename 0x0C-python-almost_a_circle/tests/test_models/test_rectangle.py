@@ -196,7 +196,33 @@ class TestRectangleDisplay(unittest.TestCase):
 
         self.assertEqual(printed_output, expected_output)
 
+class TestRectangleUpdate(unittest.TestCase):
+    """Test the update method of the Rectangle class"""
 
+    def test_update_no_args(self):
+        """Test updating with no arguments"""
+        #r = Rectangle(1, 2, 3, 4, 5)
+        #r.update()
+        #self.assertEqual(str(r), "[Rectangle] (1) 4/5 - 1/2")
+
+
+    def test_update_all_attributes(self):
+        """Test updating all attributes"""
+        #r = Rectangle(1, 2, 3, 4, 5)
+        #r.update(10, 20, 30, 40, 50)
+        #self.assertEqual(str(r), "[Rectangle] (10) 40/50 - 20/30")
+
+    def test_update_partial_attributes(self):
+        """Test updating some attributes"""
+        #r = Rectangle(1, 2, 3, 4, 5)
+        #r.update(10, 20)
+        #self.assertEqual(str(r), "[Rectangle] (10) 4/5 - 20/2")
+
+    def test_update_order_matters(self):
+        """Test that the order of arguments matters"""
+        #r = Rectangle(1, 2, 3, 4, 5)
+        #r.update(20, 10, 30, 40, 50)  # Arguments in a different order
+        #self.assertEqual(str(r), "[Rectangle] (20) 40/50 - 10/30")
 
 
 

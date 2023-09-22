@@ -27,7 +27,8 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Getter for the width property
+        """
+        Getter for the width property
         Returns the width of the Rectangle instance
         """
         return self.__width
@@ -43,7 +44,8 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Getter for the height property
+        """
+        Getter for the height property
         Returns the height of the Rectangle instance
         """
         return self.__height
@@ -59,8 +61,10 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Getter for x
-        Returns the value of x"""
+        """
+        Getter for x
+        Returns the value of x
+        """
         return self.__x
 
     @x.setter
@@ -74,8 +78,10 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Getter for y
-        Returns the value of y"""
+        """
+        Getter for y
+        Returns the value of y
+        """
         return self.__y
 
     @y.setter
@@ -88,17 +94,47 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
-        """Returns the area of the rectangle"""
+        """
+        Calculates the area of the rectangle
+        Returns:
+            The area of the rectangle
+        """
         return self.__width * self.__height
 
     def display(self):
-        """Prints a representation of the rectangle using '#' and 'x' and 'y' offsets"""
+        """
+        Prints a representation of the rectangle using '#' and 'x' and 'y' offsets
+        """
         for y_offset in range(self.__y):
             print()
         for row in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
-
     def __str__(self):
-        """Returns a string description of the Rectangle instance Attributes"""
+        """
+        String representation of the Square instance.
+
+        Returns:
+            str: A string representation of the Square.
+        """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
+
+    def update(self, *args):
+        """
+        Assigns arguments to attributes in the specified order:
+        1st argument: id attribute
+        2nd argument: width attribute
+        3rd argument: height attribute
+        4th argument: x attribute
+        5th argument: y attribute
+        """
+        if len(args) >= 1:
+            self.__id = args[0]
+        if len(args) >= 2:
+            self.__width = args[1]
+        if len(args) >= 3:
+            self.__height = args[2]
+        if len(args) >= 4:
+            self.__x = args[3]
+        if len(args) >= 5:
+            self.__y = args[4]
