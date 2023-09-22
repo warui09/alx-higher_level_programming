@@ -34,17 +34,6 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, size):
-        """
-        Setter for the size attribute.
-
-        Args:
-            size (int): The size of the square.
-
-        Raises:
-            ValueError: If size is not a positive integer.
-        """
-        if not isinstance(size, int) or size <= 0:
-            raise ValueError("size must be a positive integer")
         self.width = size
         self.height = size
 
@@ -67,7 +56,8 @@ class Square(Rectangle):
             x (int): The x-coordinate of the square.
 
         Raises:
-            ValueError: If x is not a non-negative integer.
+            TypeError: If x is not an integer.
+            ValueError: If x is less than 0.
         """
         if not isinstance(x, int) or x < 0:
             raise ValueError("x must be a non-negative integer")
@@ -92,91 +82,12 @@ class Square(Rectangle):
             y (int): The y-coordinate of the square.
 
         Raises:
-            ValueError: If y is not a non-negative integer.
+            TypeError: If y is not an integer
+            ValueError: If y is less than 0.
         """
         if not isinstance(y, int) or y < 0:
             raise ValueError("y must be a non-negative integer")
         self._y = y
-    @property
-    def size(self):
-        """
-        Getter for the size attribute.
-
-        Returns:
-            int: The size of the square.
-        """
-        return self.width
-
-    @size.setter
-    def size(self, size):
-        """
-        Setter for the size attribute.
-
-        Args:
-            size (int): The size of the square.
-
-        Raises:
-            TypeError: If size is not an integer
-            ValueError: If size is less than or equal to 0.
-        """
-        self.width = size
-        self.height = size
-
-    @property
-    def x(self):
-        """
-        Getter for the x-coordinate attribute.
-
-        Returns:
-            int: The x-coordinate of the square.
-        """
-        return self._Rectangle__x
-
-    @x.setter
-    def x(self, x):
-        """
-        Setter for the x-coordinate attribute.
-
-        Args:
-            x (int): The x-coordinate of the square.
-
-        Raises:
-            TypeError: If x is not an integer
-            ValueError: If x is less than 0.
-        """
-        if not isinstance(x, int):
-            raise TypeError("x must be an integer")
-        if x < 0:
-            raise ValueError("x must be >= 0")
-        self._Rectangle__x = x
-
-    @property
-    def y(self):
-        """
-        Getter for the y-coordinate attribute.
-
-        Returns:
-            int: The y-coordinate of the square.
-        """
-        return self._Rectangle__y
-
-    @y.setter
-    def y(self, y):
-        """
-        Setter for the y-coordinate attribute.
-
-        Args:
-            y (int): The y-coordinate of the square.
-
-        Raises:
-            TypeError: If y is not an integer
-            ValueError: If y is less than 0.
-        """
-        if not isinstance(y, int):
-            raise TypeError("y must be an integer")
-        if y < 0:
-            raise ValueError("y must be >= 0")
-        self._Rectangle__y = y
 
 
     def __str__(self):
@@ -187,3 +98,20 @@ class Square(Rectangle):
             str: A string representation of the Square.
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    def update(self, *args, **kwargs):
+        """
+        Update the Square instance attributes using *args and **kwargs.
+
+        Args:
+            *args: Non-keyworded arguments.
+            **kwargs: Keyworded arguments.
+        """
+        if args:
+            arg_names = ["id", "size", "x", "y"]
+            for i, arg in enumerate(args):
+                if i < len(arg_names):
+                    setattr(self, arg_names[i], arg)
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
