@@ -18,8 +18,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # set up query
-    query = "SELECT * FROM states WHERE name=%s ORDER BY id"
-    cur.execute(query, (sys.argv[4],))
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}'".format(sys.argv[4]))
 
     # fetch and print results
     rows = cur.fetchall()
