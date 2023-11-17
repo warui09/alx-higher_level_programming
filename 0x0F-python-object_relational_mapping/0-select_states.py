@@ -3,10 +3,10 @@
 Lists all states from the database hbtn_0e_0_usa
 """
 
-if __name__ == "__main__":
-    import MySQLdb
-    import sys
+import MySQLdb
+import sys
 
+if __name__ == "__main__":
     # Database connection parameters
     host = "localhost"
     user = sys.argv[1]
