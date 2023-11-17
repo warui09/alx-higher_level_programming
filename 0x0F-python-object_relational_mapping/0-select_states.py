@@ -3,12 +3,7 @@
 Lists all states from the database hbtn_0e_0_usa
 """
 
-
-def main():
-    """
-    Main function that will only be called when the script is run directly
-    not imported
-    """
+if __name__ == "__main__":
     import MySQLdb
     import sys
 
@@ -23,12 +18,8 @@ def main():
 
     cur = db.cursor()
     cur.execute("SELECT * FROM states")
-    states = cur.fetchall()
-    for state in states:
-        print(state)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
     cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    main()
