@@ -32,8 +32,8 @@ if __name__ == "__main__":
 
     # fetch and print results
     rows = cur.fetchall()
-    for row in rows:
-        print(row[0])
+    rows_list = list(row[0] for row in rows)
+    print(*rows_list, sep=", ")
 
     # clean up
     cur.close()
