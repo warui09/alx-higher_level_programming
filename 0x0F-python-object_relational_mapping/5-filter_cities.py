@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all cities from the database hbtn_0e_4_usa
+Takes in the name of a state as an argument and lists all cities of that state, using the database hbtn_0e_4_usa
 """
 
 if __name__ == "__main__":
@@ -8,9 +8,9 @@ if __name__ == "__main__":
     import sys
 
     # check number of arguments
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print(
-            "Usage: {} <username> <password> <database>".format(
+            "Usage: {} <username> <password> <database> <state_name> state".format(
                 sys.argv[0]
             )
         )
@@ -27,13 +27,13 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # create query and run query
-    query = "SELECT cities.id, cities.name, states.name FROM states RIGHT JOIN cities ON states.id = cities.state_id ORDER BY cities.id"
-    cur.execute(query)
+    query = "SELECT cities.name FROM states RIGHT JOIN cities ON states.id = cities.state_id WHERE states.name=%s ORDER BY cities.id"
+    cur.execute(query, (sys.argv[4],))
 
     # fetch and print results
     rows = cur.fetchall()
     for row in rows:
-        print(row)
+        print(row[0])
 
     # clean up
     cur.close()
