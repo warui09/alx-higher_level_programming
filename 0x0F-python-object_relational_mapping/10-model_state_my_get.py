@@ -12,7 +12,11 @@ import sys
 if __name__ == "__main__":
     # Check if the correct number of command-line arguments is provided
     if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        print(
+            "Usage: {} <username> <password> <database> <state_name>".format(
+                sys.argv[0]
+            )
+        )
         sys.exit(1)
 
     # Create a connection to the database
@@ -35,7 +39,6 @@ if __name__ == "__main__":
         print(state.id)
     else:
         print("Not found")
-
 
     # Close the session
     session.close()
