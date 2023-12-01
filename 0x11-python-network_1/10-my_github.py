@@ -9,7 +9,8 @@ import sys
 if __name__ == "__main__":
     user = sys.argv[1]
     passwd = sys.argv[2]
-    res = requests.get("https://api.github.com/user", auth=HTTPBasicAuth(user, passwd))
+    res = requests.get("https://api.github.com/user",
+            auth=HTTPBasicAuth(user, passwd))
 
     if res.status_code == 200:
         print(res.json().get("id"))
