@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     res = requests.post(url, params=query_param)
 
-    if res.test:
+    if res.text:
         try:
             data = res.json()
             if data:
