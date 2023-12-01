@@ -6,8 +6,12 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    query_param = {"q": sys.argv[1]}
     url = "http://0.0.0.0:5000/search_user"
+
+    if sys.argv[1]:
+        query_param = {"q": sys.argv[1]}
+    else:
+        query_param = {"q": ""}
 
     res = requests.post(url, params=query_param)
 
