@@ -10,7 +10,7 @@ if __name__ == "__main__":
         encoding = response.info().get_content_charset()
         data = res.decode(encoding)
 
-        print("Body Response:")
+        print("Body response:")
         print("    - type: {}".format(type(res)))
         print("    - content: {}".format(res))
         print("    - utf8 content: {}".format(data))
