@@ -11,6 +11,6 @@ if __name__ == "__main__":
         data = res.decode(encoding)
 
         print("Body response:")
-        print(" - type: {}".format(type(res)))
-        print(" - content: {}".format(res))
-        print(" - utf8 content: {}".format(data))
+        print("- type: {}".format(type(res)))
+        print("- content: {}".format(res))
+        print("- utf8 content: {}".format(data))
